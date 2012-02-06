@@ -29,9 +29,11 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "Dist::Zilla::Plugin::InlineFiles" => 0,
     "Dist::Zilla::Role::TextTemplate" => 0,
-    "Moose" => 0
+    "Moose" => 0,
+    "Test::CheckDeps" => 0,
+    "Test::More" => "0.88"
   },
-  "VERSION" => "0.002",
+  "VERSION" => "0.003",
   "test" => {
     "TESTS" => "t/*.t"
   }

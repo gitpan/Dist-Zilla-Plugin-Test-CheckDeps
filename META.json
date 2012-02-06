@@ -4,7 +4,7 @@
       "Leon Timmermans <leont@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300000, CPAN::Meta::Converter version 2.110440",
+   "generated_by" : "Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.113640",
    "license" : [
       "perl_5"
    ],
@@ -24,6 +24,8 @@
             "Dist::Zilla::Plugin::InlineFiles" : 0,
             "Dist::Zilla::Role::TextTemplate" : 0,
             "Moose" : 0,
+            "Test::CheckDeps" : 0,
+            "Test::More" : "0.88",
             "perl" : "5.006"
          }
       },
@@ -50,6 +52,6 @@
          "web" : "http://github.com/Leont/dist-zilla-plugin-test-checkdeps"
       }
    },
-   "version" : "0.002"
+   "version" : "0.003"
 }
 

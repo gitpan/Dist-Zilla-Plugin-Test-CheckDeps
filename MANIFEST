@@ -6,7 +6,6 @@ META.json
 META.yml
 Makefile.PL
 README
-SIGNATURE
 dist.ini
 lib/Dist/Zilla/Plugin/Test/CheckDeps.pm
 t/00-assure-deps.t

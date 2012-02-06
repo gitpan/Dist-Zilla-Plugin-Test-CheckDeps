@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::Test::CheckDeps;
 {
-  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.002';
+  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.003';
 }
 
 use Moose;
@@ -14,13 +14,13 @@ has fatal => (
 );
 
 around add_file => sub {
-    my ($orig, $self, $file) = @_;
-    return $self->$orig(
-        Dist::Zilla::File::InMemory->new(
-            name    => $file->name,
-            content => $self->fill_in_string($file->content, { fatal => $self->fatal })
-        ),
-    );
+	my ($orig, $self, $file) = @_;
+	return $self->$orig(
+		Dist::Zilla::File::InMemory->new(
+			name    => $file->name,
+			content => $self->fill_in_string($file->content, { fatal => $self->fatal })
+		)
+	);
 };
 
 __PACKAGE__->meta->make_immutable;
@@ -34,11 +34,11 @@ no Moose;
 
 =head1 NAME
 
-Dist::Zilla::Plugin::Test::CheckDeps - Check for presence of dependencies
+Dist::Zilla::Plugin::Test::CheckDeps
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 AUTHOR
 
@@ -55,14 +55,14 @@ the same terms as the Perl 5 programming language system itself.
 
 
 __DATA__
-___[ t/00-assure-deps.t ]___
+___[ t/00-check-deps.t ]___
 use Test::More 0.88;
 use Test::CheckDeps;
 
 check_dependencies();
 
 if ({{ $fatal }}) {
-	BAIL_OUT("Missing dependencies") if !Test::More->builder->is_passing;
+    BAIL_OUT("Missing dependencies") if !Test::More->builder->is_passing;
 }
 
 done_testing;
@@ -73,7 +73,7 @@ __END__
 
 =head1 SYNOPSIS
 
- [Test::AssureDeps]
+ [Test::CheckDeps]
  fatal = 0 ; default
 
 =head1 DESCRIPTION
