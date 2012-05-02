@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::Test::CheckDeps;
 {
-  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.004';
+  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.005';
 }
 
 use Moose;
@@ -43,7 +43,7 @@ Dist::Zilla::Plugin::Test::CheckDeps
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 AUTHOR
 

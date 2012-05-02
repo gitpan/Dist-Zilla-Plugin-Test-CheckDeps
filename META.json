@@ -25,7 +25,7 @@
             "Dist::Zilla::Role::PrereqSource" : "0",
             "Dist::Zilla::Role::TextTemplate" : "0",
             "Moose" : "0",
-            "Test::CheckDeps" : "0",
+            "Test::CheckDeps" : "0.002",
             "Test::More" : "0.88",
             "perl" : "5.006"
          }
@@ -53,6 +53,6 @@
          "web" : "http://github.com/Leont/dist-zilla-plugin-test-checkdeps"
       }
    },
-   "version" : "0.004"
+   "version" : "0.005"
 }
 

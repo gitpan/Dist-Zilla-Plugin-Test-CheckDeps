@@ -31,10 +31,10 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Role::PrereqSource" => 0,
     "Dist::Zilla::Role::TextTemplate" => 0,
     "Moose" => 0,
-    "Test::CheckDeps" => 0,
+    "Test::CheckDeps" => "0.002",
     "Test::More" => "0.88"
   },
-  "VERSION" => "0.004",
+  "VERSION" => "0.005",
   "test" => {
     "TESTS" => "t/*.t"
   }
