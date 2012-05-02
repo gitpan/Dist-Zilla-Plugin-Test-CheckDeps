@@ -8,7 +8,7 @@ Makefile.PL
 README
 dist.ini
 lib/Dist/Zilla/Plugin/Test/CheckDeps.pm
-t/00-assure-deps.t
+t/00-check-deps.t
 t/00-compile.t
 t/release-kwalitee.t
 t/release-pod-coverage.t

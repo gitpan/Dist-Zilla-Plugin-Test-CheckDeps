@@ -28,12 +28,13 @@ my %WriteMakefileArgs = (
   "NAME" => "Dist::Zilla::Plugin::Test::CheckDeps",
   "PREREQ_PM" => {
     "Dist::Zilla::Plugin::InlineFiles" => 0,
+    "Dist::Zilla::Role::PrereqSource" => 0,
     "Dist::Zilla::Role::TextTemplate" => 0,
     "Moose" => 0,
     "Test::CheckDeps" => 0,
     "Test::More" => "0.88"
   },
-  "VERSION" => "0.003",
+  "VERSION" => "0.004",
   "test" => {
     "TESTS" => "t/*.t"
   }
