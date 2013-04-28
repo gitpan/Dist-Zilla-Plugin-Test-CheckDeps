@@ -1,10 +1,15 @@
 Revision history for Dist-Zilla-Plugin-Test-CheckDeps
 
+0.003     2013-04-28 08:29:56 America/Vancouver
+          require version of Test::More that added is_passing()
+          (RT#84905, Karen Etheridge)
+
 0.005     2012-05-02 23:40:44 Europe/Amsterdam
           Increase runtime dependency on Test::CheckDeps to 0.002
 
 0.004     2012-05-02 21:54:33 Europe/Amsterdam
-          Inject a test-phase requirement on Test::CheckDeps and Test::More into the distribution being built.
+          Inject a test-phase requirement on Test::CheckDeps and Test::More
+          into the distribution being built.
 
 0.003     2012-02-06 23:39:53 Europe/Amsterdam
           Rename test to t/00-check-deps.t

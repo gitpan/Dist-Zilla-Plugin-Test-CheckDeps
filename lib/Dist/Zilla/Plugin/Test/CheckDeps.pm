@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::Test::CheckDeps;
 {
-  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.005';
+  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.003';
 }
 
 use Moose;
@@ -33,17 +33,15 @@ no Moose;
 
 1;
 
-
-
 =pod
 
 =head1 NAME
 
-Dist::Zilla::Plugin::Test::CheckDeps
+Dist::Zilla::Plugin::Test::CheckDeps - Check for presence of dependencies
 
 =head1 VERSION
 
-version 0.005
+version 0.003
 
 =head1 AUTHOR
 
@@ -58,10 +56,9 @@ the same terms as the Perl 5 programming language system itself.
 
 =cut
 
-
 __DATA__
 ___[ t/00-check-deps.t ]___
-use Test::More 0.88;
+use Test::More 0.94;
 use Test::CheckDeps;
 
 check_dependencies();
