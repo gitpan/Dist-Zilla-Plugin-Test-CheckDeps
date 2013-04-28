@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::Test::CheckDeps;
 {
-  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.003';
+  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.006';
 }
 
 use Moose;
@@ -41,7 +41,7 @@ Dist::Zilla::Plugin::Test::CheckDeps - Check for presence of dependencies
 
 =head1 VERSION
 
-version 0.003
+version 0.006
 
 =head1 AUTHOR
 

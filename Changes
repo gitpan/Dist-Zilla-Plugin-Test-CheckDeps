@@ -1,6 +1,6 @@
 Revision history for Dist-Zilla-Plugin-Test-CheckDeps
 
-0.003     2013-04-28 08:29:56 America/Vancouver
+0.006     2013-04-28 08:39:02 America/Vancouver
           require version of Test::More that added is_passing()
           (RT#84905, Karen Etheridge)
 
