@@ -4,7 +4,7 @@
       "Leon Timmermans <leont@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880",
+   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -16,7 +16,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.30"
+            "Module::Build::Tiny" : "0.021"
          }
       },
       "develop" : {
@@ -32,7 +32,7 @@
             "Dist::Zilla::Role::PrereqSource" : "0",
             "Dist::Zilla::Role::TextTemplate" : "0",
             "Moose" : "0",
-            "Test::CheckDeps" : "0.002",
+            "Test::CheckDeps" : "0.006",
             "Test::More" : "0.94",
             "perl" : "5.006"
          }
@@ -41,8 +41,8 @@
          "requires" : {
             "File::Find" : "0",
             "File::Temp" : "0",
-            "Test::CheckDeps" : "0.002",
-            "Test::More" : "0.88",
+            "Test::CheckDeps" : "0.006",
+            "Test::More" : "0.94",
             "strict" : "0",
             "warnings" : "0"
          }
@@ -56,10 +56,10 @@
       },
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/karenetheridge/dist-zilla-plugin-test-checkdeps.git",
-         "web" : "https://github.com/karenetheridge/dist-zilla-plugin-test-checkdeps"
+         "url" : "git://github.com/Leont/dist-zilla-plugin-test-checkdeps.git",
+         "web" : "https://github.com/Leont/dist-zilla-plugin-test-checkdeps"
       }
    },
-   "version" : "0.006"
+   "version" : "0.007"
 }
 
