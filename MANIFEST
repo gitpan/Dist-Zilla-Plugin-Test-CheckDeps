@@ -5,11 +5,15 @@ LICENSE
 MANIFEST
 META.json
 META.yml
+Makefile.PL
 README
 dist.ini
 lib/Dist/Zilla/Plugin/Test/CheckDeps.pm
 t/00-check-deps.t
 t/00-compile.t
+t/00-report-prereqs.t
+t/01-basic.t
+t/02-filename.t
 weaver.ini
 xt/author/pod-spell.t
 xt/release/changes_has_content.t
