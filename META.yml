@@ -5,23 +5,22 @@ author:
 build_requires:
   Cwd: 0
   ExtUtils::MakeMaker: 0
-  File::Spec: 0
   File::Spec::Functions: 0
-  IO::Handle: 0
-  IPC::Open3: 0
   List::Util: 0
   Path::Tiny: 0
-  Test::CheckDeps: 0.007
+  Test::CheckDeps: 0.010
   Test::DZil: 0
+  Test::Deep: 0
+  Test::Deep::JSON: 0
   Test::More: 0.94
   if: 0
   strict: 0
   warnings: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
-  Module::Build::Tiny: 0.027
+  Module::Build::Tiny: 0.030
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132620'
+generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -35,7 +34,7 @@ no_index:
 provides:
   Dist::Zilla::Plugin::Test::CheckDeps:
     file: lib/Dist/Zilla/Plugin/Test/CheckDeps.pm
-    version: 0.009
+    version: 0.010
 requires:
   Dist::Zilla::Plugin::InlineFiles: 0
   Dist::Zilla::Role::PrereqSource: 0
@@ -47,7 +46,7 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-Test-CheckDeps
   homepage: https://github.com/Leont/dist-zilla-plugin-test-checkdeps
   repository: https://github.com/Leont/dist-zilla-plugin-test-checkdeps.git
-version: 0.009
+version: 0.010
 x_Dist_Zilla:
   perl:
     version: 5.019004
@@ -59,11 +58,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PromptIfStale
       name: '@Author::ETHER/build'
-      version: 0.006
+      version: 0.008
     -
       class: Dist::Zilla::Plugin::PromptIfStale
       name: '@Author::ETHER/release'
-      version: 0.006
+      version: 0.008
     -
       class: Dist::Zilla::Plugin::ExecDir
       name: '@Author::ETHER/ExecDir'
@@ -101,16 +100,26 @@ x_Dist_Zilla:
       name: '@Author::ETHER/Manifest'
       version: 4.300039
     -
+      class: Dist::Zilla::Plugin::GenerateFile::ShareDir
+      config:
+        Dist::Zilla::Plugin::GenerateFile::ShareDir:
+          destination_filename: CONTRIBUTING
+          dist: Dist-Zilla-PluginBundle-Author-ETHER
+          source_filename: CONTRIBUTING
+      name: '@Author::ETHER/GenerateFile::ShareDir'
+      version: 0.001
+    -
       class: Dist::Zilla::Plugin::Test::Compile
       config:
         Dist::Zilla::Plugin::Test::Compile:
+          filename: xt/author/00-compile.t
           module_finder:
             - ':InstallModules'
           script_finder:
             - ':ExecFiles'
             - '@Author::ETHER/Examples'
       name: '@Author::ETHER/Test::Compile'
-      version: 2.033
+      version: 2.036
     -
       class: Dist::Zilla::Plugin::Test::NoTabs
       config:
@@ -121,7 +130,7 @@ x_Dist_Zilla:
             - ':ExecFiles'
             - '@Author::ETHER/Examples'
       name: '@Author::ETHER/Test::NoTabs'
-      version: 0.04
+      version: 0.05
     -
       class: Dist::Zilla::Plugin::EOLTests
       name: '@Author::ETHER/EOLTests'
@@ -177,7 +186,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::ReportPrereqs
       name: '@Author::ETHER/Test::ReportPrereqs'
-      version: 0.006
+      version: 0.007
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@Author::ETHER/PruneCruft'
@@ -210,7 +219,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::GithubMeta
       name: '@Author::ETHER/GithubMeta'
-      version: 0.38
+      version: 0.42
     -
       class: Dist::Zilla::Plugin::AutoMetaResources
       name: '@Author::ETHER/AutoMetaResources'
@@ -258,6 +267,18 @@ x_Dist_Zilla:
       name: '@Author::ETHER/installer_requirements'
       version: 4.300039
     -
+      class: Dist::Zilla::Plugin::Prereqs
+      config:
+        Dist::Zilla::Plugin::Prereqs:
+          phase: develop
+          type: recommends
+      name: '@Author::ETHER/pluginbundle_version'
+      version: 4.300039
+    -
+      class: Dist::Zilla::Plugin::RunExtraTests
+      name: '@Author::ETHER/RunExtraTests'
+      version: 0.011
+    -
       class: Dist::Zilla::Plugin::ReadmeAnyFromPod
       name: '@Author::ETHER/ReadmeAnyFromPod'
       version: 0.131500
@@ -272,7 +293,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::InstallGuide
       name: '@Author::ETHER/InstallGuide'
-      version: 1.200000
+      version: 1.200001
     -
       class: Dist::Zilla::Plugin::CopyFilesFromBuild
       name: '@Author::ETHER/CopyFilesFromBuild'
@@ -282,21 +303,17 @@ x_Dist_Zilla:
       name: '@Author::ETHER/Run::AfterBuild'
       version: 0.020
     -
-      class: Dist::Zilla::Plugin::RunExtraTests
-      name: '@Author::ETHER/RunExtraTests'
-      version: 0.011
-    -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@Author::ETHER/Git::Check'
       version: 2.014
     -
       class: Dist::Zilla::Plugin::Git::CheckFor::MergeConflicts
       name: '@Author::ETHER/Git::CheckFor::MergeConflicts'
-      version: 0.006
+      version: 0.007
     -
       class: Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch
       name: '@Author::ETHER/Git::CheckFor::CorrectBranch'
-      version: 0.006
+      version: 0.007
     -
       class: Dist::Zilla::Plugin::Git::Remote::Check
       name: '@Author::ETHER/Git::Remote::Check'

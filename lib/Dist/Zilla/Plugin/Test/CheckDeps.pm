@@ -3,9 +3,9 @@ BEGIN {
   $Dist::Zilla::Plugin::Test::CheckDeps::AUTHORITY = 'cpan:ETHER';
 }
 {
-  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.009';
+  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.010';
 }
-# git description: v0.008-9-g4be7e67
+# git description: v0.009-12-gd93b79f
 
 # vim: set ts=4 sw=4 tw=78 et nolist :
 
@@ -13,6 +13,12 @@ use Moose;
 extends qw/Dist::Zilla::Plugin::InlineFiles/;
 with qw/Dist::Zilla::Role::TextTemplate Dist::Zilla::Role::PrereqSource/;
 use namespace::autoclean;
+
+has todo_when => (
+    is => 'ro',
+    isa => 'Str',
+    default => '0',     # special value for 'insert no special code at all'
+);
 
 has fatal => (
     is => 'ro',
@@ -43,6 +49,7 @@ around add_file => sub {
             {
                 dist => \($self->zilla),
                 plugin => \$self,
+                todo_when => $self->todo_when,
                 fatal => $self->fatal,
                 level => $self->level,
             })
@@ -52,7 +59,7 @@ around add_file => sub {
 
 sub register_prereqs {
     my $self = shift;
-    $self->zilla->register_prereqs({ phase => 'test' }, 'Test::More' => '0.94', 'Test::CheckDeps' => '0.007');
+    $self->zilla->register_prereqs({ phase => 'test' }, 'Test::More' => '0.94', 'Test::CheckDeps' => '0.010');
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -63,7 +70,7 @@ __PACKAGE__->meta->make_immutable;
 
 =encoding utf-8
 
-=for :stopwords Leon Timmermans Karen Etheridge
+=for :stopwords Leon Timmermans Karen Etheridge TODO
 
 =head1 NAME
 
@@ -71,7 +78,7 @@ Dist::Zilla::Plugin::Test::CheckDeps - Check for presence of dependencies
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 SYNOPSIS
 
@@ -86,6 +93,15 @@ This module adds a test that assures all dependencies have been installed proper
 This plugin accepts the following options:
 
 =over 4
+
+=item * C<todo_when>: a code string snippet (evaluated when the test is run)
+to indicate when failing tests should be considered L<TODO|Test::More/Conditional tests>,
+rather than genuine fails -- default is '0' (tests are never C<TODO>).
+
+Other suggested values are:
+
+    todo_when = !$ENV{AUTHOR_TESTING} && !$ENV{AUTOMATED_TESTING}
+    todo_when = $^V < '5.012'   ; CPAN.pm didn't reliably read META.* before this
 
 =item * C<fatal>: if true, C<BAIL_OUT> is called if the tests fail. Defaults
 to false.
@@ -135,13 +151,32 @@ use warnings;
 # this test was generated with {{ ref($plugin) . ' ' . ($plugin->VERSION || '<self>') }}
 
 use Test::More 0.94;
-use Test::CheckDeps 0.007;
+{{
+    my $use = 'use Test::CheckDeps 0.010;';
 
+    # todo_when = 0 is treated as a special default, backwards-compatible case
+    $use = "BEGIN {\n    ($todo_when) && eval \"" . $use
+        . " 1\"\n        or plan skip_all => '!!! Test::CheckDeps required for checking dependencies -- failure to satisfy specified prerequisites!';\n}\n"
+        . $use
+            if $todo_when ne '0';
+    $use
+}}
+
+{{
+    $todo_when eq '0'
+        ? ''
+        : "local \$TODO = 'these tests are not fatal when $todo_when' if (${todo_when});\n"
+            . 'my $builder = Test::Builder->new;' . "\n"
+            . 'my $todo_output_orig = $builder->todo_output;' . "\n"
+            . '$builder->todo_output($builder->failure_output);' . "\n";
+}}
 check_dependencies('{{ $level }}');
+{{
+    $todo_when ne '0' ? "\$builder->todo_output(\$todo_output_orig);\n" : '';
+}}
 
 if ({{ $fatal }}) {
     BAIL_OUT("Missing dependencies") if !Test::More->builder->is_passing;
 }
 
 done_testing;
-
