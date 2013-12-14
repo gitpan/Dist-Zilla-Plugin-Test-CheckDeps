@@ -1,12 +1,12 @@
 package Dist::Zilla::Plugin::Test::CheckDeps;
+{
+  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.011';
+}
+# git description: v0.010-5-g23d9999
+
 BEGIN {
   $Dist::Zilla::Plugin::Test::CheckDeps::AUTHORITY = 'cpan:ETHER';
 }
-{
-  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.010';
-}
-# git description: v0.009-12-gd93b79f
-
 # vim: set ts=4 sw=4 tw=78 et nolist :
 
 use Moose;
@@ -68,7 +68,7 @@ __PACKAGE__->meta->make_immutable;
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =for :stopwords Leon Timmermans Karen Etheridge TODO
 
@@ -78,7 +78,7 @@ Dist::Zilla::Plugin::Test::CheckDeps - Check for presence of dependencies
 
 =head1 VERSION
 
-version 0.010
+version 0.011
 
 =head1 SYNOPSIS
 
