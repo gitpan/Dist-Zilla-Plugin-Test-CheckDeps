@@ -15,6 +15,7 @@ my @modules = qw(
   CPAN::Meta
   CPAN::Meta::Requirements
   Cwd
+  Dist::Zilla
   Dist::Zilla::Plugin::InlineFiles
   Dist::Zilla::Role::PrereqSource
   Dist::Zilla::Role::TextTemplate

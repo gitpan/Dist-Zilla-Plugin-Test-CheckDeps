@@ -1,8 +1,8 @@
 package Dist::Zilla::Plugin::Test::CheckDeps;
 {
-  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.011';
+  $Dist::Zilla::Plugin::Test::CheckDeps::VERSION = '0.012';
 }
-# git description: v0.010-5-g23d9999
+# git description: v0.011-5-g6f4c027
 
 BEGIN {
   $Dist::Zilla::Plugin::Test::CheckDeps::AUTHORITY = 'cpan:ETHER';
@@ -70,7 +70,7 @@ __PACKAGE__->meta->make_immutable;
 
 =encoding UTF-8
 
-=for :stopwords Leon Timmermans Karen Etheridge TODO
+=for :stopwords Leon Timmermans Brendan Byrd Karen Etheridge TODO
 
 =head1 NAME
 
@@ -78,7 +78,7 @@ Dist::Zilla::Plugin::Test::CheckDeps - Check for presence of dependencies
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
 =head1 SYNOPSIS
 
@@ -130,6 +130,10 @@ the same terms as the Perl 5 programming language system itself.
 =head1 CONTRIBUTORS
 
 =over 4
+
+=item *
+
+Brendan Byrd <GitHub@ResonatorSoft.org>
 
 =item *
 

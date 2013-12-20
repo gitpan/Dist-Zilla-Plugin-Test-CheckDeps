@@ -4,6 +4,7 @@ author:
   - 'Leon Timmermans <leont@cpan.org>'
 build_requires:
   Cwd: 0
+  Dist::Zilla: 4.300039
   ExtUtils::MakeMaker: 0
   File::Spec::Functions: 0
   List::Util: 0
@@ -34,7 +35,7 @@ no_index:
 provides:
   Dist::Zilla::Plugin::Test::CheckDeps:
     file: lib/Dist/Zilla/Plugin/Test/CheckDeps.pm
-    version: 0.011
+    version: 0.012
 requires:
   Dist::Zilla::Plugin::InlineFiles: 0
   Dist::Zilla::Role::PrereqSource: 0
@@ -48,7 +49,7 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-Test-CheckDeps
   homepage: https://github.com/Leont/dist-zilla-plugin-test-checkdeps
   repository: https://github.com/Leont/dist-zilla-plugin-test-checkdeps.git
-version: 0.011
+version: 0.012
 x_Dist_Zilla:
   perl:
     version: 5.019006
@@ -148,7 +149,7 @@ x_Dist_Zilla:
             - ':ExecFiles'
             - '@Author::ETHER/Examples'
       name: '@Author::ETHER/Test::NoTabs'
-      version: 0.05
+      version: 0.06
     -
       class: Dist::Zilla::Plugin::EOLTests
       name: '@Author::ETHER/EOLTests'
@@ -188,7 +189,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::PodSpelling
       name: '@Author::ETHER/Test::PodSpelling'
-      version: 2.006001
+      version: 2.006002
     -
       class: Dist::Zilla::Plugin::Test::Pod::No404s
       name: '@Author::ETHER/Test::Pod::No404s'
@@ -542,5 +543,6 @@ x_Dist_Zilla:
     version: 5.006
 x_authority: cpan:ETHER
 x_contributors:
+  - 'Brendan Byrd <GitHub@ResonatorSoft.org>'
   - 'Karen Etheridge <ether@cpan.org>'
   - 'Leon Timmermans <fawaka@gmail.com>'
